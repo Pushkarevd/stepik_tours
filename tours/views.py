@@ -1,9 +1,10 @@
+from random import shuffle
+
+from django.http import HttpResponseNotFound, HttpResponseServerError, Http404
 from django.shortcuts import render
 from django.views import View
-from django.http import Http404
-from django.http import HttpResponseNotFound, HttpResponseServerError
+
 from tours.information import tours, departures, title, subtitle, description
-from random import shuffle
 
 
 def custom_handler404(request, exception):
@@ -19,11 +20,11 @@ class MainView(View):
     def get(self, request, *args, **kwargs):
         keys = list(tours.keys())[:6]
         shuffle(keys)
-        shuffledTours = dict()
+        shuffled_tours = dict()
         for key in keys:
-            shuffledTours.update({key: tours[key]})
+            shuffled_tours.update({key: tours[key]})
 
-        return render(request, 'index.html', {"tours": shuffledTours, "departures": departures, "title": title,
+        return render(request, 'index.html', {"tours": shuffled_tours, "departures": departures, "title": title,
                                               "subtitle": subtitle, "description": description})
 
 

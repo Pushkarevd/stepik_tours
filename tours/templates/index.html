@@ -1,32 +1,33 @@
 {% extends 'base.html' %}
 {% block container %}
 
-<!-- HERO -->
+    <!-- HERO -->
 
-<div class="jumbotron text-center mt-4">
-  <div class="jumbotron text-center" style="color: white; background-image: url(https://wallpaperaccess.com/full/2028728.jpg); background-size: cover">
-  <h1 class="display-4">{{ title }}</h1>
-  <p class="lead">{{ subtitle }}</p>
-  <p class="mt-5 w-50 mx-auto">{{ description }}</p>
-  </div>
-</div>
-
-<!-- CARDS -->
-<div class="row mt-5" data-test="cards">
-    {% for id, tour in tours.items %}
-    <div class="col-4" data-test="card">
-        <div class="card mb-3" >
-        <img src="{{ tour.picture }}" class="card-img-top img-fluid" style="width: 500px; height: 200px">
-        <div class="card-body">
-          <h5 class="card-title">{{ tour.title }}  {{ tour.stars }}★</h5>
-         <p class="card-text">{{ tour.description }}</p>
-            <a href="tour/{{ id }}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
-            <p class = "card-text">{{ tour.date }}, {{ tour.nights }} дней, {{ tour.price }}Р</p>
+    <div class="jumbotron text-center mt-4">
+        <div class="jumbotron text-center"
+             style="color: white; background-image: url(https://wallpaperaccess.com/full/2028728.jpg); background-size: cover">
+            <h1 class="display-4">{{ title }}</h1>
+            <p class="lead">{{ subtitle }}</p>
+            <p class="mt-5 w-50 mx-auto">{{ description }}</p>
         </div>
     </div>
-    </div>
-    {% endfor %}
 
-</div>
+    <!-- CARDS -->
+    <div class="row mt-5" data-test="cards">
+        {% for id, tour in tours.items %}
+            <div class="col-4" data-test="card">
+                <div class="card mb-3">
+                    <img src="{{ tour.picture }}" class="card-img-top img-fluid" style="width: 500px; height: 200px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ tour.title }} {{ tour.stars }}★</h5>
+                        <p class="card-text">{{ tour.description }}</p>
+                        <a href="tour/{{ id }}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+                        <p class="card-text">{{ tour.date }}, {{ tour.nights }} дней, {{ tour.price }}Р</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
 
 {% endblock %}

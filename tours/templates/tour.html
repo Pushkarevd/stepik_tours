@@ -5,12 +5,14 @@
 
     <!-- HERO -->
 
-    <p class="lead" data-test="lead"><span data-test="country">{{ tour.country }}</span><span data-text="departure"> {{ city }}</span> <span data-text="nights">на {{ tour.nights }}</span> ночей</p>
+    <p class="lead" data-test="lead"><span data-test="country">{{ tour.country }}</span><span
+            data-text="departure"> {{ city }}</span> <span data-text="nights">на {{ tour.nights }}</span> ночей</p>
 
     <img data-test="picture" src="{{ tour.picture }}" class="w-75" alt="">
-    
+
     <p class="my-4 w-75" data-test="description">{{ tour.description }}</p>
-    <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span data-test="price">{{ tour.price }}</span></a>
-</div>
+    <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span
+            data-test="price">{{ tour.price }}</span></a>
+    </div>
 
 {% endblock %}
